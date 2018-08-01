@@ -53,9 +53,22 @@ class MyClass2 {
     </li>`
 
             $(findElem).append(html);  
+        },
+
+        AddingFuncToClsAddToPrototype = (findElem = 'body') => {
+            let obj = new MyClass2();
+            let html = `<li>Adding a function to a class adds it to the prototype object : <b>
+            obj.showId === MyClass2.prototype.showId = ${obj.showId === MyClass2.prototype.showId} </b>
+    <pre><code class="language-javascript">
+    let obj = new MyClass2();
+    let html = \`Adding a function to a class adds it to the prototype object : 
+        <b>(obj.showId === MyClass2.prototype.showId) = \${obj.showId === MyClass2.prototype.showId}</b>
+    \$(findElem).append(html);  
+    </pre></code>
+    </li>`
+
+            $(findElem).append(html);  
         };
-
-
 
         class MyClass1 {
 
@@ -74,7 +87,8 @@ class MyClass2 {
             typeOfClassInstance,
             intanceofClass,
             init2,
-            objLiteralClassSyntax
+            objLiteralClassSyntax,
+            AddingFuncToClsAddToPrototype
         };
     };
 

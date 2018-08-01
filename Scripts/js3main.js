@@ -6,4 +6,5 @@ $(function(){
     classes.intanceofClass('#classes ol');
     classes.init2('#classes ol');
     classes.objLiteralClassSyntax('#classes ol');
+    classes.AddingFuncToClsAddToPrototype('#classes ol');
 });
