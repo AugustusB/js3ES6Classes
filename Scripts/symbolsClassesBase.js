@@ -68,6 +68,49 @@ class MyClass2 {
     </li>`
 
             $(findElem).append(html);  
+        },
+
+        init3 = (findElem = 'body') => {
+            let html = `<h2><pre><code class="language-javascript">
+Note3 :
+class MyClass3 {
+    constructor() {
+        console.log('in constructor');
+    };
+    showId(){
+        return 99;
+    };
+};
+</code></pre></h2></br>` 
+            $(findElem).append(html);
+        },
+
+
+        classConstructor = (findElem = 'body') => {
+            let obj = new MyClass3();
+            let html = `<li>constructor called when newing up a MyClass3</li>`;
+            $(findElem).append(html);
+        },
+
+        classesNotHoisted = (findElem = 'body') => {
+
+            try {
+                let cls1 = new MyCls1();
+
+                class MyCls1{
+                };
+            } catch (error) {
+                let html = `<li>Classes are not hoisted : <b>${error}</b>
+    <pre><code class="language-javascript">
+    let cls1 = new MyCls1();
+    
+    class MyCls1{
+    };  
+    </pre></code>
+                </li>`;
+                $(findElem).append(html);
+            }
+
         };
 
         class MyClass1 {
@@ -81,6 +124,15 @@ class MyClass2 {
             };
         };
 
+        class MyClass3 {
+            constructor() {
+             console.log('in constructor');
+            };
+            showId(){
+                return 99;
+            };
+        };
+
         return {
             init1,
             typeOfClass,
@@ -88,7 +140,10 @@ class MyClass2 {
             intanceofClass,
             init2,
             objLiteralClassSyntax,
-            AddingFuncToClsAddToPrototype
+            AddingFuncToClsAddToPrototype,
+            init3,
+            classConstructor,
+            classesNotHoisted
         };
     };
 
