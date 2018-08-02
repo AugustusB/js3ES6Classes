@@ -11,5 +11,7 @@ $(function(){
     classes.init3(MY_CONST_ID);
     classes.classConstructor(MY_CONST_ID);
     classes.classesNotHoisted(MY_CONST_ID);
+    classes.classesLikeFunctionsExpressions(MY_CONST_ID);
+    
     
 });

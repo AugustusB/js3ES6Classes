@@ -111,6 +111,28 @@ class MyClass3 {
                 $(findElem).append(html);
             }
 
+        },
+        classesLikeFunctionsExpressions = (findElem = 'body') =>{
+            let newCls = class MyCls{
+                constructor(){
+                    console.log (`in constructor 20`);
+                }
+            }
+            let obj = new newCls();
+            let html = `<li>Classes used like function expression : <b>let obj = new newCls()</b>
+    <pre><code class="language-javascript">
+    let newCls = class MyCls{
+        constructor(){
+            console.log (\`in constructor 20\`);
+        }
+    }
+    let obj = new newCls();
+    let html = \`Classes used like function expression : <b>let obj = new newCls()</b>\`
+    \$(findElem).append(html);
+    </pre></code>
+            </li>`
+            $(findElem).append(html);
+
         };
 
         class MyClass1 {
@@ -143,7 +165,8 @@ class MyClass3 {
             AddingFuncToClsAddToPrototype,
             init3,
             classConstructor,
-            classesNotHoisted
+            classesNotHoisted,
+            classesLikeFunctionsExpressions
         };
     };
 
