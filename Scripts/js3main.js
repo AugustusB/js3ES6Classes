@@ -12,6 +12,8 @@ $(function(){
     classes.classConstructor(MY_CONST_ID);
     classes.classesNotHoisted(MY_CONST_ID);
     classes.classesLikeFunctionsExpressions(MY_CONST_ID);
+    classes.callAndFunctions(MY_CONST_ID);
+    classes.callAndClass(MY_CONST_ID);
     
     
 });

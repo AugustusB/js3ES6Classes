@@ -36,8 +36,8 @@ Note2 :
 class MyClass2 {
     showId(){
         return 99;
-    };
-};
+    }
+}
 </code></pre></h2></br>` 
             $(findElem).append(html);
         },
@@ -76,11 +76,11 @@ Note3 :
 class MyClass3 {
     constructor() {
         console.log('in constructor');
-    };
+    }
     showId(){
         return 99;
-    };
-};
+    }
+}
 </code></pre></h2></br>` 
             $(findElem).append(html);
         },
@@ -98,14 +98,14 @@ class MyClass3 {
                 let cls1 = new MyCls1();
 
                 class MyCls1{
-                };
+                }
             } catch (error) {
                 let html = `<li>Classes are not hoisted : <b>${error}</b>
     <pre><code class="language-javascript">
     let cls1 = new MyCls1();
     
     class MyCls1{
-    };  
+    }
     </pre></code>
                 </li>`;
                 $(findElem).append(html);
@@ -133,27 +133,61 @@ class MyClass3 {
             </li>`
             $(findElem).append(html);
 
+        },
+
+        callAndFunctions = (findElem = `body`) =>{
+            let myFunc = function myFunc(){
+                return this.num1;
+            }
+            let objLit = {
+                num : 10,
+                num1 : 20
+            }
+
+            let n = myFunc.call(objLit);
+            let html = `<li>Using call in function myFunc() = ${n}</li>`
+            $(findElem).append(html);
+        },
+
+        callAndClass = (findElem = `body`) => {
+            try {
+                let cls = class MyCls {
+                    constructor(){
+                        console.log(`in constructor in callAndClass`);
+                    }
+                }
+                let objLit = {
+                    num : 10,
+                    num1 : 20
+                }
+                cls.call(objLit);
+            } catch (error) {
+                let html = `<li>Using call in class MyCls() throws : ${error}</li>`
+                $(findElem).append(html);
+            }
+        
         };
+
 
         class MyClass1 {
 
-        };
+        }
 
         
         class MyClass2 {
             showId(){
                 return 99;
-            };
-        };
+            }
+        }
 
         class MyClass3 {
             constructor() {
              console.log('in constructor');
-            };
+            }
             showId(){
                 return 99;
-            };
-        };
+            }
+        }
 
         return {
             init1,
@@ -166,9 +200,11 @@ class MyClass3 {
             init3,
             classConstructor,
             classesNotHoisted,
-            classesLikeFunctionsExpressions
+            classesLikeFunctionsExpressions,
+            callAndFunctions,
+            callAndClass
         };
     };
 
 })(window.Gus = window.Gus || {}, 
-    window.Gus.Classes =  window.Gus.Classes || {});
+    window.Gus.Classes =  window.Gus.Classes || {})
